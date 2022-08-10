@@ -2,15 +2,15 @@
 #calculator{
     width: 400px;
     height: 500px;
-    border: 3px solid black;
+    border: 5px solid black;
     margin: 0 auto;
 
     display: flex;
     flex-direction: column;
 
-    background-color: antiquewhite;
+    background-color:floralwhite;
 
-    border-radius: 5px;
+    border-radius: 10px;
 
     font-family: monospace;
     font-size: 40px;
@@ -70,7 +70,7 @@
     width: 70px;
     height: 100%;
     margin: 2px;
-    border: 1px solid black;
+    border: 2px solid black;
 
     flex: 1;
 
@@ -95,4 +95,11 @@
 
 .zero{
     flex: 25%;
+}
+
+h1{
+    margin: 30px auto;
+    font-family: monospace;
+    font-size: 50px;
+    text-align: center;
 }
