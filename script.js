@@ -15,6 +15,9 @@ const nine = document.getElementById("nine");
 const zero = document.getElementById("zero");
 
 const plus = document.getElementById("plus");
+const minus = document.getElementById("minus");
+const multiply = document.getElementById("multiply");
+const divide = document.getElementById("divide");
 
 let displayNumber = "";
 
@@ -23,6 +26,8 @@ let secondNumber = 0;
 let result = undefined;
 let operand = "";
 
+
+// NUMBER BUTTONS
 one.addEventListener('click', () => {
     updateDisplayNumberButton('1');
 });
@@ -63,11 +68,23 @@ zero.addEventListener('click', () => {
     updateDisplayNumberButton('0');
 });
 
-
+//////////// OPERAND BUTTONS
 plus.addEventListener('click', () =>{
     operatorButton("+");
-})
+});
 
+minus.addEventListener('click', () =>{
+    operatorButton("-");
+});
+
+multiply.addEventListener('click', () =>{
+    operatorButton("*");
+});
+
+divide.addEventListener('click', () =>{
+    operatorButton("/");
+});
+////////// FUNCTIONS
 function clearAllValues(){
     firstNumber = 0;
     secondNumber = 0;
