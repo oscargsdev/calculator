@@ -13,6 +13,9 @@ const seven = document.getElementById("seven");
 const eight = document.getElementById("eight");
 const nine = document.getElementById("nine");
 const zero = document.getElementById("zero");
+const dot = document.getElementById("dot");
+
+let alreadyDot = false;
 
 const plus = document.getElementById("plus");
 const minus = document.getElementById("minus");
@@ -70,6 +73,15 @@ zero.addEventListener('click', () => {
     updateDisplayNumberButton('0');
 });
 
+dot.addEventListener('click', () => {
+
+    if (!alreadyDot){
+        updateDisplayNumberButton('.');
+        alreadyDot = true;
+    }
+    
+});
+
 //////////// OPERAND BUTTONS
 plus.addEventListener('click', () =>{
     operatorButton("+");
@@ -98,6 +110,7 @@ function clearAllValues(){
     displayNumber = "";
     operand = "";
     result = "";
+    alreadyDot = false;
 
     display.textContent = 0;
 }
@@ -127,6 +140,7 @@ function operatorButton(op){
         firstNumber = parseFloat(displayNumber);
         operand = op;
         displayNumber = '';
+        alreadyDot = false;
         // display.textContent = displayNumber;
     }
     else{
@@ -138,6 +152,7 @@ function operatorButton(op){
         display.textContent = firstNumber;
         displayNumber = "";
         operand = op;
+        alreadyDot = false;
     
         
         
