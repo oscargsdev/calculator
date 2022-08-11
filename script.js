@@ -21,6 +21,7 @@ const plus = document.getElementById("plus");
 const minus = document.getElementById("minus");
 const multiply = document.getElementById("multiply");
 const divide = document.getElementById("divide");
+const equals = document.getElementById("equals");
 
 const clear = document.getElementById("clear");
 
@@ -99,6 +100,10 @@ divide.addEventListener('click', () =>{
     operatorButton("/");
 });
 
+equals.addEventListener('click', () =>{
+    operatorButton("=");
+});
+
 clear.addEventListener('click', () => {
     clearAllValues();
 });
@@ -145,15 +150,28 @@ function operatorButton(op){
     }
     else{
         
-        secondNumber = parseFloat(displayNumber);
-        result = operate(firstNumber, secondNumber, operand);
-        firstNumber = result;
+        if (op == "="){
+            secondNumber = parseFloat(displayNumber);
+            display.textContent = operate(firstNumber, secondNumber, operand);
+
+            firstNumber = 0;
+            secondNumber = 0;
+            displayNumber = "";
+            operand = "";
+            result = "";
+            alreadyDot = false;
+        }
+        else{
+            secondNumber = parseFloat(displayNumber);
+            result = operate(firstNumber, secondNumber, operand);
+            firstNumber = result;
+            
+            display.textContent = firstNumber;
+            displayNumber = "";
+            operand = op;
+            alreadyDot = false;    
+        }
         
-        display.textContent = firstNumber;
-        displayNumber = "";
-        operand = op;
-        alreadyDot = false;
-    
         
         
     }    
