@@ -19,6 +19,8 @@ const minus = document.getElementById("minus");
 const multiply = document.getElementById("multiply");
 const divide = document.getElementById("divide");
 
+const clear = document.getElementById("clear");
+
 let displayNumber = "";
 
 let firstNumber = 0;
@@ -84,15 +86,20 @@ multiply.addEventListener('click', () =>{
 divide.addEventListener('click', () =>{
     operatorButton("/");
 });
+
+clear.addEventListener('click', () => {
+    clearAllValues();
+});
+
 ////////// FUNCTIONS
 function clearAllValues(){
     firstNumber = 0;
     secondNumber = 0;
-    displayNumber = 0;
+    displayNumber = "";
     operand = "";
     result = "";
 
-    display.textContent = displayNumber;
+    display.textContent = 0;
 }
 
 function updateDisplayNumberButton(num){
@@ -117,14 +124,14 @@ function operate(firstNumber, secondNumber, operand){
 
 function operatorButton(op){
     if (operand == ""){
-        firstNumber = parseInt(displayNumber);
+        firstNumber = parseFloat(displayNumber);
         operand = op;
         displayNumber = '';
         // display.textContent = displayNumber;
     }
     else{
         
-        secondNumber = parseInt(displayNumber);
+        secondNumber = parseFloat(displayNumber);
         result = operate(firstNumber, secondNumber, operand);
         firstNumber = result;
         
